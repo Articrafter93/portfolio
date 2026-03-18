@@ -40,4 +40,18 @@ export const projects: Project[] = [
     featured: true,
     year: 2026,
   },
+  {
+    id: 'gordales',
+    title: 'Gordales',
+    description:
+      'Plataforma web oficial para cadena de comida rápida. Home, menú por categorías, sedes y leads — arquitectura multi-sede expandible.',
+    longDescription:
+      'Reemplaza dependencia de SaaS de terceros con plataforma propia: menú dinámico con BFF API interna, formulario de leads con rate limiting, SEO local optimizado y arquitectura preparada para Payload CMS en fase 2.',
+    stack: ['Next.js', 'TypeScript', 'Zod', 'Vercel'],
+    imageUrl: '/projects/project-4.webp',
+    repoUrl: 'https://github.com/Articrafter93/gordales',
+    demoUrl: 'https://gordales.vercel.app',
+    featured: false,
+    year: 2026,
+  },
 ];
