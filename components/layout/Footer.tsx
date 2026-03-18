@@ -35,9 +35,12 @@ export function Footer() {
           })}
         </div>
 
-        <p className="text-xs text-muted-foreground">
-          Built with Next.js & Tailwind CSS
-        </p>
+        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          <a href="/privacidad" className="hover:text-foreground transition-colors">
+            Privacidad
+          </a>
+          <p>Built with Next.js & Tailwind CSS</p>
+        </div>
       </div>
     </footer>
   );

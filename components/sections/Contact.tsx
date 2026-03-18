@@ -18,6 +18,9 @@ const schema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   email: z.string().email('Ingresa un email válido'),
   message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+  consent: z.boolean().refine((value) => value, {
+    message: 'Debes autorizar el tratamiento de datos para enviar el mensaje',
+  }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -163,6 +166,32 @@ export function Contact() {
             <p className="text-xs text-muted-foreground">
               Tu información solo se usa para responder tu mensaje.
             </p>
+
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="consent"
+                className="flex items-start gap-3 rounded-lg border border-border bg-[var(--surface)] px-4 py-3 text-sm text-muted-foreground"
+              >
+                <input
+                  id="consent"
+                  type="checkbox"
+                  {...register('consent')}
+                  aria-invalid={!!errors.consent}
+                  className="mt-1 h-4 w-4 rounded border-border accent-primary"
+                />
+                <span>
+                  Autorizo el tratamiento de mis datos para recibir respuesta a este
+                  mensaje y acepto la{' '}
+                  <a href="/privacidad" className="text-primary underline underline-offset-4">
+                    política de privacidad
+                  </a>
+                  .
+                </span>
+              </label>
+              {errors.consent && (
+                <p className="text-xs text-destructive">{errors.consent.message}</p>
+              )}
+            </div>
 
             <Button
               type="submit"
