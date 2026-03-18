@@ -9,7 +9,7 @@ export const personal: PersonalInfo = {
     'Disfruto trabajar en el cruce entre diseño y engineering: me importa tanto que el código sea limpio como que la experiencia de usuario sea excelente. He colaborado con equipos distribuidos en proyectos que van desde MVPs hasta plataformas con miles de usuarios.',
     'Actualmente disponible para posiciones full-time o proyectos freelance. Si construyes algo interesante, hablemos.',
   ],
-  email: 'tu@email.com',
+  email: 'fcubillos93@gmail.com',
   cvUrl: '/cv.pdf',
   social: [
     {
@@ -19,12 +19,12 @@ export const personal: PersonalInfo = {
     },
     {
       label: 'LinkedIn',
-      url: 'https://linkedin.com/in/tu-usuario',
+      url: 'https://www.linkedin.com/feed/',
       icon: 'linkedin',
     },
     {
       label: 'Email',
-      url: 'mailto:tu@email.com',
+      url: 'mailto:fcubillos93@gmail.com',
       icon: 'mail',
     },
   ],
