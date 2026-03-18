@@ -6,6 +6,7 @@ const schema = z.object({
   name: z.string().min(2).max(100),
   email: z.string().email(),
   message: z.string().min(10).max(2000),
+  consent: z.literal(true),
 });
 
 export async function POST(request: Request) {
