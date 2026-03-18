@@ -19,7 +19,7 @@ export const personal: PersonalInfo = {
     },
     {
       label: 'LinkedIn',
-      url: 'https://www.linkedin.com/feed/',
+      url: 'https://www.linkedin.com/in/fabian-andres-cubillos-herrera-2a5457a6/',
       icon: 'linkedin',
     },
     {
