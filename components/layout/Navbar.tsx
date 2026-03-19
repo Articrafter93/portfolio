@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { personal } from '@/data/personal';
@@ -39,17 +38,17 @@ export function Navbar() {
           : 'bg-transparent',
       )}
     >
-      <nav className="container mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-8">
-        {/* Logo */}
+      <nav className="flex h-20 max-w-full items-center justify-between px-48 md:px-64">
+        {/* Logo — inset from left */}
         <button
           onClick={() => handleNavClick('#hero')}
-          className="text-lg font-bold text-white hover:text-primary transition-colors"
+          className="flex-shrink-0 text-lg font-bold text-white hover:text-primary transition-colors"
         >
           Home<span className="text-primary">.</span>
         </button>
 
-        {/* Desktop links */}
-        <div className="hidden items-center gap-6 md:flex">
+        {/* Desktop links — center */}
+        <div className="hidden items-center gap-8 md:flex flex-1 justify-center">
           {NAV_LINKS.map((link) => (
             <button
               key={link.href}
@@ -61,12 +60,11 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Right side */}
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
+        {/* Right side — inset from right */}
+        <div className="flex items-center gap-3 md:gap-6">
           <Button
             size="sm"
-            className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-white font-bold"
+            className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-white font-bold flex-shrink-0"
             onClick={() => handleNavClick('#contact')}
           >
             Hire Me

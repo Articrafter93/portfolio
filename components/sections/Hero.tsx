@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Download } from 'lucide-react';
 import { personal } from '@/data/personal';
+import { HeroServers } from './HeroServers';
 
 function scrollTo(id: string) {
   document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -33,6 +34,9 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen flex-col items-center justify-center hero-mesh overflow-hidden"
     >
+      {/* Cyberpunk server racks with energy traces */}
+      <HeroServers reduced={prefersReducedMotion ?? false} />
+
       {/* Content */}
       <motion.div
         className="container mx-auto flex max-w-4xl flex-col items-center px-4 text-center md:px-8"
