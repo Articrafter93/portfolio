@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from 'motion/react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Download } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { personal } from '@/data/personal';
 import { HeroServers } from './HeroServers';
 
@@ -91,15 +91,6 @@ export function Hero() {
           >
             View Projects
           </Button>
-          <a
-            href={personal.cvUrl}
-            download
-            aria-label="Download Resume"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-9 text-base font-medium text-foreground transition-colors hover:bg-muted font-bold"
-          >
-            <Download className="h-4.5 w-4.5" />
-            Download Resume
-          </a>
         </motion.div>
       </motion.div>
 
