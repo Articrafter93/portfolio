@@ -54,7 +54,7 @@ export function Hero() {
         {/* Name */}
         <motion.h1
           variants={itemVariants}
-          className="mb-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl"
+          className="mb-4 text-6xl font-bold tracking-tight text-foreground md:text-8xl"
         >
           {personal.name}
         </motion.h1>
@@ -62,7 +62,7 @@ export function Hero() {
         {/* Title */}
         <motion.p
           variants={itemVariants}
-          className="mb-4 text-xl text-muted-foreground"
+          className="mb-4 text-2xl text-muted-foreground"
         >
           {personal.title}
         </motion.p>
@@ -70,7 +70,7 @@ export function Hero() {
         {/* Headline */}
         <motion.p
           variants={itemVariants}
-          className="mb-10 max-w-2xl text-lg text-muted-foreground/80"
+          className="mb-10 max-w-2xl text-xl text-muted-foreground/80"
         >
           {personal.headline}
         </motion.p>
@@ -83,18 +83,18 @@ export function Hero() {
           <Button
             size="lg"
             onClick={() => scrollTo('#projects')}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-bold"
           >
-            Ver proyectos
+            View Projects
           </Button>
           <a
             href={personal.cvUrl}
             download
-            aria-label="Descargar CV"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-8 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            aria-label="Download Resume"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-9 text-base font-medium text-foreground transition-colors hover:bg-muted font-bold"
           >
-            <Download className="h-4 w-4" />
-            Descargar CV
+            <Download className="h-4.5 w-4.5" />
+            Download Resume
           </a>
         </motion.div>
       </motion.div>

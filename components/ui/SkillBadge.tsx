@@ -10,12 +10,47 @@ interface SkillBadgeProps {
   className?: string;
 }
 
+const BRAND_COLORS: Record<string, string> = {
+  SiReact: '#61DAFB',
+  SiNextdotjs: '#FFFFFF',
+  SiTypescript: '#3178C6',
+  SiTailwindcss: '#06B6D4',
+  SiJavascript: '#F7DF1E',
+  SiFramer: '#0055FF',
+  SiNodedotjs: '#339933',
+  SiPython: '#3776AB',
+  SiFastapi: '#05998B',
+  SiPostgresql: '#4169E1',
+  SiPrisma: '#2D3748',
+  SiRedis: '#FF4438',
+  SiVercel: '#FFFFFF',
+  SiDocker: '#2496ED',
+  SiGithubactions: '#2088FF',
+  SiLinux: '#FCC624',
+  SiNginx: '#009639',
+  SiAmazonwebservices: '#FF9900',
+  SiGit: '#F05032',
+  SiOpenai: '#10A37F',
+  SiFigma: '#F24E1E',
+  SiZod: '#3E67B1',
+  SiPlaywright: '#2EAD33',
+  SiSocketdotio: '#FFFFFF',
+};
+
 // Map icon string → React Icons component
 function SkillIcon({ iconName }: { iconName: string }) {
-  const icons = Si as Record<string, React.ComponentType<{ className?: string }>>;
+  const icons = Si as Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>>;
   const Icon = icons[iconName];
   if (!Icon) return <span className="h-5 w-5" />;
-  return <Icon className="h-5 w-5 shrink-0" />;
+  
+  const brandColor = BRAND_COLORS[iconName];
+  
+  return (
+    <Icon 
+      className="h-5 w-5 shrink-0 transition-colors duration-300" 
+      style={brandColor ? { color: brandColor } : undefined}
+    />
+  );
 }
 
 export function SkillBadge({ skill, className }: SkillBadgeProps) {

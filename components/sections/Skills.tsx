@@ -16,12 +16,12 @@ export function Skills() {
     <SectionWrapper id="skills" alt>
       <FadeIn>
         <div className="mb-12 flex flex-col gap-2">
-          <p className="text-sm font-medium text-primary">Expertise</p>
+          <p className="text-base font-bold text-primary">Expertise</p>
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Skills
           </h2>
           <p className="mt-1 max-w-xl text-muted-foreground">
-            Las herramientas y tecnologías con las que trabajo día a día.
+            Tools and technologies I work with every day.
           </p>
         </div>
       </FadeIn>

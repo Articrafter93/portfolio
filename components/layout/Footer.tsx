@@ -7,6 +7,12 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   mail: Mail,
 };
 
+const BRAND_COLORS: Record<string, string> = {
+  github: 'bg-[#24292e] dark:bg-[#24292e]',
+  linkedin: 'bg-[#0077b5]',
+  mail: 'bg-[#ea4335]',
+};
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -27,9 +33,9 @@ export function Footer() {
                 target={link.icon !== 'mail' ? '_blank' : undefined}
                 rel={link.icon !== 'mail' ? 'noopener noreferrer' : undefined}
                 aria-label={link.label}
-                className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110 inline-block"
+                className={`flex h-8 w-8 items-center justify-center rounded-full ${BRAND_COLORS[link.icon] ?? 'bg-muted'} text-white transition-all hover:scale-110 shadow-sm`}
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-3.5 w-3.5" />
               </a>
             );
           })}

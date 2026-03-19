@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           >
             Volver al inicio
           </Link>
-          <p className="text-sm font-medium text-primary">Privacidad</p>
+          <p className="text-base font-bold text-primary">Privacidad</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Politica de privacidad
           </h1>

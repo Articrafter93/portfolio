@@ -5,9 +5,9 @@ export const personal: PersonalInfo = {
   title: 'Full-Stack Developer',
   headline: 'Building products that scale — from idea to production.',
   bio: [
-    'Soy desarrollador full-stack con pasión por construir productos web rápidos, accesibles y bien diseñados. Me especializo en el stack moderno de JavaScript/TypeScript, con foco en Next.js, Node.js y bases de datos relacionales.',
-    'Disfruto trabajar en el cruce entre diseño y engineering: me importa tanto que el código sea limpio como que la experiencia de usuario sea excelente. He colaborado con equipos distribuidos en proyectos que van desde MVPs hasta plataformas con miles de usuarios.',
-    'Actualmente disponible para posiciones full-time o proyectos freelance. Si construyes algo interesante, hablemos.',
+    'I\'m a full-stack developer passionate about building fast, accessible, and well-designed web products. I specialize in the modern JavaScript/TypeScript stack, with a focus on Next.js, Node.js, and relational databases.',
+    'I enjoy working at the intersection of design and engineering: I care equally about clean code and excellent user experience. I\'ve collaborated with distributed teams on projects ranging from MVPs to platforms serving thousands of users.',
+    'Currently available for full-time positions or freelance projects. If you\'re building something interesting, let\'s talk.',
   ],
   email: 'fcubillos93@gmail.com',
   cvUrl: '/cv.pdf',
