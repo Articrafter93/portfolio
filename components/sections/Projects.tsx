@@ -12,12 +12,12 @@ export function Projects() {
     <SectionWrapper id="projects">
       <FadeIn>
         <div className="mb-12 flex flex-col gap-2">
-          <p className="text-sm font-medium text-primary">Work</p>
+          <p className="text-base font-bold text-primary">Work</p>
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Proyectos
+            Projects
           </h2>
           <p className="mt-1 max-w-xl text-muted-foreground">
-            Una selección de proyectos que demuestran mi rango técnico — desde productos SaaS hasta herramientas de desarrollo.
+            A selection of projects demonstrating my technical range — from SaaS products to developer tools.
           </p>
         </div>
       </FadeIn>

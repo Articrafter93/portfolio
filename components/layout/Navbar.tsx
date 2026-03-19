@@ -39,13 +39,13 @@ export function Navbar() {
           : 'bg-transparent',
       )}
     >
-      <nav className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-8">
+      <nav className="container mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <button
           onClick={() => handleNavClick('#hero')}
-          className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+          className="text-lg font-bold text-white hover:text-primary transition-colors"
         >
-          {personal.name.split(' ')[0] || 'Portfolio'}<span className="text-primary">.</span>
+          Home<span className="text-primary">.</span>
         </button>
 
         {/* Desktop links */}
@@ -54,7 +54,7 @@ export function Navbar() {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-lg font-bold text-white hover:text-primary transition-colors"
             >
               {link.label}
             </button>
@@ -66,7 +66,7 @@ export function Navbar() {
           <ThemeToggle />
           <Button
             size="sm"
-            className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground"
+            className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-white font-bold"
             onClick={() => handleNavClick('#contact')}
           >
             Hire Me
@@ -92,14 +92,14 @@ export function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="rounded-md px-3 py-2.5 text-left text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                className="rounded-md px-3 py-3 text-left text-lg text-white hover:bg-muted hover:text-primary transition-colors font-bold"
               >
                 {link.label}
               </button>
             ))}
             <Button
               size="sm"
-              className="mt-2 bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="mt-2 bg-primary hover:bg-primary/90 text-white font-bold"
               onClick={() => handleNavClick('#contact')}
             >
               Hire Me

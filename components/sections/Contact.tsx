@@ -15,11 +15,11 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { personal } from '@/data/personal';
 
 const schema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-  email: z.string().email('Ingresa un email válido'),
-  message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Enter a valid email'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
   consent: z.boolean().refine((value) => value, {
-    message: 'Debes autorizar el tratamiento de datos para enviar el mensaje',
+    message: 'You must authorize data processing to send the message',
   }),
 });
 
@@ -31,6 +31,12 @@ const SOCIAL_ICONS: Record<string, React.ComponentType<{ className?: string }>> 
   github: Github,
   linkedin: Linkedin,
   mail: Mail,
+};
+
+const BRAND_COLORS: Record<string, string> = {
+  github: 'bg-[#24292e] dark:bg-[#24292e]',
+  linkedin: 'bg-[#0077b5]',
+  mail: 'bg-[#ea4335]',
 };
 
 export function Contact() {
@@ -67,12 +73,12 @@ export function Contact() {
     <SectionWrapper id="contact">
       <FadeIn>
         <div className="mb-12 flex flex-col gap-2">
-          <p className="text-sm font-medium text-primary">Get in touch</p>
+          <p className="text-base font-bold text-primary">Get in touch</p>
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Trabajemos juntos
+            Let's Work Together
           </h2>
           <p className="mt-1 max-w-xl text-muted-foreground">
-            ¿Tienes un proyecto interesante? Cuéntame. Respondo en menos de 24 horas.
+            Got an interesting project? Tell me about it. I respond within 24 hours.
           </p>
         </div>
       </FadeIn>
@@ -83,7 +89,7 @@ export function Contact() {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                Información de contacto
+                Contact Information
               </h3>
               <div className="flex flex-col gap-3">
                 {personal.social.map((link) => {
@@ -98,8 +104,8 @@ export function Contact() {
                       whileHover={{ x: 4 }}
                       transition={{ duration: 0.15 }}
                     >
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-[var(--surface)] group-hover:border-primary/40 group-hover:bg-[var(--surface-hover)] transition-colors">
-                        <Icon className="h-4 w-4" />
+                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-transparent ${BRAND_COLORS[link.icon] ?? 'bg-[var(--surface)]'} text-white shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}>
+                        <Icon className="h-4.5 w-4.5" />
                       </div>
                       <span className="text-sm">{link.label}</span>
                     </motion.a>
@@ -110,7 +116,7 @@ export function Contact() {
 
             <div className="rounded-xl border border-border bg-[var(--surface)] p-5">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Actualmente disponible para posiciones full-time remote o híbrido, y para proyectos freelance de duración media-larga.
+                Currently available for full-time remote or hybrid positions, and for medium to long-term freelance projects.
               </p>
             </div>
           </div>
@@ -120,10 +126,10 @@ export function Contact() {
         <FadeIn delay={0.1}>
           <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
             <div className="flex flex-col gap-1.5">
-              <Label htmlFor="name">Nombre</Label>
+              <Label htmlFor="name">Name</Label>
               <Input
                 id="name"
-                placeholder="Tu nombre"
+                placeholder="Your name"
                 {...register('name')}
                 aria-invalid={!!errors.name}
                 className="bg-[var(--surface)] border-border focus:border-primary"
@@ -138,7 +144,7 @@ export function Contact() {
               <Input
                 id="email"
                 type="email"
-                placeholder="tu@email.com"
+                placeholder="you@email.com"
                 {...register('email')}
                 aria-invalid={!!errors.email}
                 className="bg-[var(--surface)] border-border focus:border-primary"
@@ -149,10 +155,10 @@ export function Contact() {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <Label htmlFor="message">Mensaje</Label>
+              <Label htmlFor="message">Message</Label>
               <Textarea
                 id="message"
-                placeholder="Cuéntame sobre tu proyecto..."
+                placeholder="Tell me about your project..."
                 rows={5}
                 {...register('message')}
                 aria-invalid={!!errors.message}
@@ -164,7 +170,7 @@ export function Contact() {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              Tu información solo se usa para responder tu mensaje.
+              Your information is only used to respond to your message.
             </p>
 
             <div className="flex flex-col gap-2">
@@ -180,10 +186,10 @@ export function Contact() {
                   className="mt-1 h-4 w-4 rounded border-border accent-primary"
                 />
                 <span>
-                  Autorizo el tratamiento de mis datos para recibir respuesta a este
-                  mensaje y acepto la{' '}
-                  <a href="/privacidad" className="text-primary underline underline-offset-4">
-                    política de privacidad
+                  I authorize the processing of my data to receive a response to this
+                  message and accept the{' '}
+                  <a href="/privacy" className="text-primary underline underline-offset-4">
+                    privacy policy
                   </a>
                   .
                 </span>
@@ -196,29 +202,29 @@ export function Contact() {
             <Button
               type="submit"
               disabled={status === 'loading'}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold"
             >
               {status === 'loading' ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Enviando...
+                  Sending...
                 </>
               ) : (
                 <>
                   <Send className="mr-2 h-4 w-4" />
-                  Enviar mensaje
+                  Send Message
                 </>
               )}
             </Button>
 
             {status === 'success' && (
               <p className="text-sm text-emerald-400 font-medium">
-                ¡Mensaje enviado! Te respondo pronto.
+                Message sent! I'll respond soon.
               </p>
             )}
             {status === 'error' && (
               <p className="text-sm text-destructive">
-                Algo salió mal. Escríbeme directamente a {personal.email}.
+                Something went wrong. Write me directly at {personal.email}.
               </p>
             )}
           </form>

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Project } from '@/types';
 
@@ -46,7 +46,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       className={cn(
-        'group flex flex-col overflow-hidden rounded-xl',
+        'group flex h-full flex-col overflow-hidden rounded-xl',
         'border border-border bg-[var(--surface)]',
         'hover:border-primary/40 transition-all duration-300',
         'hover:[box-shadow:0_0_30px_var(--accent-glow)]',
@@ -68,13 +68,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Content */}
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-semibold text-foreground leading-snug">
+          <h3 className="font-normal text-foreground leading-snug">
             {project.title}
           </h3>
           <span className="shrink-0 text-xs text-muted-foreground">{project.year}</span>
         </div>
 
-        <p className="flex-1 text-sm text-muted-foreground leading-relaxed">
+        <p className="flex-1 text-sm text-white leading-relaxed font-normal">
           {project.description}
         </p>
 
@@ -86,16 +86,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-3 pt-1 border-t border-border">
+        <div className="flex w-full gap-2 pt-1 border-t border-border">
           <a
             href={project.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Ver código de ${project.title} en GitHub`}
-            className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            className={cn(
+              "flex flex-1 items-center justify-center rounded-full py-2.5 transition-all duration-300",
+              "bg-black text-white border border-white hover:bg-zinc-800 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            )}
           >
-            <Github className="h-3.5 w-3.5" />
-            <span>Código</span>
+            <Github className="h-4.5 w-4.5" />
           </a>
           {project.demoUrl && (
             <a
@@ -103,10 +105,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Ver demo de ${project.title}`}
-              className="flex items-center gap-1.5 text-xs text-primary hover:text-primary/80 transition-colors"
+            className={cn(
+                "flex flex-1 items-center justify-center rounded-full py-2.5 transition-all duration-300",
+                "bg-[#8B5CF6] text-white border border-white hover:bg-[#7C3AED] hover:shadow-[0_0_15px_rgba(139,92,246,0.4)]"
+              )}
             >
-              <ExternalLink className="h-3.5 w-3.5" />
-              <span>Demo en vivo</span>
+              <Play className="h-4 w-4 fill-current" />
             </a>
           )}
         </div>
