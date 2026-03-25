@@ -58,9 +58,10 @@ function VTrace({ x, y0, y1, dur, delay, color, r = 3.5 }: {
   dur: number; delay: number; color: string; r?: number;
 }) {
   return (
-    <motion.circle cx={x} cy={y0} r={r} fill={color}
+    <motion.circle r={r} fill={color}
+      initial={{ cx: x, cy: y0 }}
       style={{ filter: `drop-shadow(0 0 8px ${color})` }}
-      animate={{ cy: [y0, y1] }}
+      animate={{ cx: x, cy: [y0, y1] }}
       transition={{ duration: dur, repeat: Infinity, delay, ease: 'easeInOut', repeatType: 'mirror' }}
     />
   );
@@ -240,7 +241,8 @@ function CircuitBeam({ points, dur, delay, color, r = 3.5 }: {
     <>
       {/* Light trail ghosts */}
       {trails.map((trail, ti) => (
-        <motion.circle key={`trail-${ti}`} cx={cxs[0]} cy={cys[0]} r={trail.size} fill={color}
+        <motion.circle key={`trail-${ti}`} r={trail.size} fill={color}
+          initial={{ cx: cxs[0], cy: cys[0] }}
           style={{ filter: `drop-shadow(0 0 ${6 * trail.opacity}px ${color})`, opacity: trail.opacity }}
           animate={{ cx: cxs, cy: cys }}
           transition={{
@@ -250,7 +252,8 @@ function CircuitBeam({ points, dur, delay, color, r = 3.5 }: {
         />
       ))}
       {/* Main particle */}
-      <motion.circle cx={cxs[0]} cy={cys[0]} r={r} fill={color}
+      <motion.circle r={r} fill={color}
+        initial={{ cx: cxs[0], cy: cys[0], opacity: 0 }}
         style={{ filter: `drop-shadow(0 0 16px ${color})` }}
         animate={{ cx: cxs, cy: cys, opacity: opacities }}
         transition={{
