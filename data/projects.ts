@@ -94,7 +94,6 @@ export const projects: Project[] = [
       'Reemplaza dependencia de SaaS de terceros con plataforma propia: menú dinámico con BFF API interna, formulario de leads con rate limiting, SEO local optimizado y arquitectura preparada para Payload CMS en fase 2.',
     stack: ['Next.js', 'TypeScript', 'Zod', 'Vercel'],
     imageUrl: '/projects/project-7.png',
-    repoUrl: 'https://github.com/Articrafter93/gordales',
     demoUrl: 'https://gordales.vercel.app',
     featured: false,
     year: 2026,

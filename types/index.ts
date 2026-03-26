@@ -6,7 +6,7 @@ export interface Project {
   stack: string[];
   imageUrl: string;
   demoUrl?: string;
-  repoUrl: string;
+  repoUrl?: string;
   featured: boolean;
   year: number;
 }
