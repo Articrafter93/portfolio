@@ -87,18 +87,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Links */}
         <div className="flex w-full gap-2 pt-1 border-t border-border">
-          <a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Ver código de ${project.title} en GitHub`}
-            className={cn(
-              "flex flex-1 items-center justify-center rounded-full py-2.5 transition-all duration-300",
-              "bg-black text-white border border-white hover:bg-zinc-800 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-            )}
-          >
-            <Github className="h-4.5 w-4.5" />
-          </a>
+          {project.repoUrl && (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ver código de ${project.title} en GitHub`}
+              className={cn(
+                "flex flex-1 items-center justify-center rounded-full py-2.5 transition-all duration-300",
+                "bg-black text-white border border-white hover:bg-zinc-800 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+              )}
+            >
+              <Github className="h-4.5 w-4.5" />
+            </a>
+          )}
           {project.demoUrl && (
             <a
               href={project.demoUrl}
